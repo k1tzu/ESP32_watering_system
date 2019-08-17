@@ -1,0 +1,5 @@
+config.h
+node_modules/
+.idea/
+*.lock
+

@@ -1,0 +1,14 @@
+{
+  "TITLE": "Sensors state",
+  "DRY": "Dry",
+  "MOIST": "Moist",
+  "WET": "Wet",
+  "ON": "ON",
+  "OFF": "OFF",
+  "SoilState": "Soil State",
+  "PumpState": "Pump State",
+  "StartPumping": "Start Pumping",
+  "StopPumping": "Stop Pumping",
+  "SystemShutdown": "System Shutdown",
+  "SHUTDOWNWARN": "This will turn off the system completely. Are you sure?"
+}

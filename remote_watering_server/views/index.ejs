@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="refresh" content="10">
+<html xmlns="http://www.w3.org/1999/xhtml" lang=<%- currentLang %>>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title><%= __('TITLE') %></title>
+    <style>
+        /*green #1de8b5	(29,232,181)
+        blue #42a5f5	(66,165,245)
+        red #ef5350	(239,83,80)
+        yellow #ffca28	(255,202,40)
+        purple #7986cb	(121,134,203)
+        */    body {
+            background: #fffff;
+            font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+            font-size: small;
+            margin: 8px 0 16px;
+            text-align: center;
+        }
+
+        #form_container {
+            border-width: 0;
+            outline: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+            background-color: #2ecc71;
+            /*color: #ecf0f1;*/
+
+            transition: background-color .3s;
+            background: #fff;
+            border: 1px solid #cacc;
+            margin: 0 auto;
+            text-align: left;
+            width: auto;
+        }
+
+
+        /*form.appnitro {*/
+            /*float: left;*/
+            /*margin: 20px 20px 0;*/
+            /*padding: 0 0 20px;*/
+        /*}*/
+        /**** Logo Section  *****/
+
+        h1 {
+            background-color: #dedede;
+            margin: 0;
+            min-height: 0;
+            padding: 0;
+            text-decoration: none;
+            text-indent: -8000px;
+        }
+
+        h1 a {
+
+            display: block;
+            height: 100%;
+            min-height: 1em;
+            overflow: hidden;
+        }
+        /**** Form Section ****/
+
+        .appnitro {
+            padding: 0.5em;
+            font-family: Lato, sans-serif;
+            font-weight: 700;
+            margin: 0.5em;
+
+            float: left;
+            font-family: Lucida Grande, Tahoma, Arial, Verdana, sans-serif;
+            font-size: small;
+            border-bottom: 1px solid #e7eef1;
+            overflow: hidden;
+
+            border-width: 0;
+            outline: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        }
+
+        @media screen and (max-width: 1366px) {
+            .appnitro {width: 30%;}
+        }
+
+        @media screen and (max-width: 400px) {
+            .appnitro {width: 90%;}
+        }
+
+        .appnitro li {
+            /*width: 61%;*/
+        }
+
+        form ul {
+            font-size: 100%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        form li {
+            display: block;
+            margin: 0;
+            padding: 4px 5px 2px 9px;
+            position: relative;
+        }
+
+        form li:after {
+            clear: both;
+            content: ".";
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+
+
+        * html form li {
+            height: 1%;
+        }
+
+        * html form li div {
+            display: inline-block;
+        }
+
+        form li div {
+            color: #444;
+            margin: 0 4px 0 0;
+            padding: 0 0 8px;
+        }
+
+        form li div.left {
+            display: inline;
+            float: left;
+            width: 48%;
+        }
+
+        form li div.right {
+            display: inline;
+            float: right;
+            width: 48%;
+        }
+
+        form li div.left .medium {
+            width: 100%;
+        }
+
+        form li div.right .medium {
+            width: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        form li div label {
+            clear: both;
+            color: #444;
+            display: block;
+            font-size: 9px;
+            line-height: 9px;
+            margin: 0;
+            padding-top: 3px;
+        }
+
+        .form_description {
+            border-bottom: 1px dotted #ccc;
+            clear: both;
+            display: inline-block;
+            margin: 0 0 1em;
+        }
+
+        .form_description[class] {
+            display: block;
+        }
+
+        .form_description h2 {
+            clear: left;
+            font-size: 160%;
+            font-weight: 400;
+            margin: 0 0 3px;
+        }
+
+        .form_description p {
+            font-size: 95%;
+            line-height: 130%;
+            margin: 0 0 12px;
+        }
+
+        form hr {
+            display: none;
+        }
+
+        form li.section_break {
+            border-top: 1px dotted #ccc;
+            margin-top: 9px;
+            padding-bottom: 0;
+            padding-left: 9px;
+            padding-top: 13px;
+            width: 97% !important;
+        }
+
+        form ul li.first {
+            border-top: none !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        form .section_break h3 {
+            font-size: 110%;
+            font-weight: 400;
+            line-height: 130%;
+            margin: 0 0 2px;
+        }
+
+        form .section_break p {
+            font-size: 85%;
+
+            margin: 0 0 10px;
+        }
+        /**** Inputs and Labels ****/
+
+        label.description {
+            border: none;
+            color: #222;
+            display: block;
+            font-size: 95%;
+            font-weight: 700;
+            line-height: 150%;
+            padding: 0 0 1px;
+        }
+
+        input.text {
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #c3c3c3;
+            border-right: 1px solid #c3c3c3;
+            border-top: 1px solid #7c7c7c;
+            color: #333;
+            font-size: 100%;
+            margin: 0;
+            padding: 2px 0;
+        }
+
+        input.medium {
+            width: 50%;
+        }
+
+        .btn {
+            font-family: Lato, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e7eef1;
+            width: 80%;
+            height: 3em !important;
+            margin: 1em !important;
+            position: relative;
+
+            display: block;
+            margin: 30px auto;
+            /*padding: 0;*/
+
+            overflow: hidden;
+
+            border-width: 0;
+            outline: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+            background-color: #42a5f5;
+            color: #ecf0f1;
+
+            transition: background-color .3s;
+        }
+
+        .btn:hover,.btn:focus {
+            background-color: #3484c4;
+        }
+
+        .btn>* {
+            position: relative;
+        }
+
+        .btn span {
+            display: block;
+            padding: 12px 24px;
+        }
+
+        .btn:before {
+            content: "";
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            display: block;
+            width: 0;
+            padding-top: 0;
+
+            border-radius: 100%;
+
+            background-color: rgba(236, 240, 241, .3);
+
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:active:before {
+            width: 120%;
+            padding-top: 120%;
+
+            transition: width .2s ease-out, padding-top .2s ease-out;
+        }
+    </style>
+</head>
+
+<body id="main_body">
+<div id="form_container">
+    <h1><a>Sensor State</a></h1>
+    <% Object.keys(sensors).forEach(function(key){ %>
+    <%- include('sensorForm', sensors[key]) %>
+    <% }); %>
+</div>
+</body>
+
+</html>

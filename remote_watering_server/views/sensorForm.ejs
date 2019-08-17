@@ -1,0 +1,33 @@
+<form id="<%- sensorID %>_form" class="appnitro" method="post" action="/submit">
+    <div class="form_description">
+        <h2><%- sensorID %></h2>
+        <p></p>
+    </div>
+    <ul>
+        <li>
+            <label class="description" for="soilState"><%- __('SoilState')  %></label>
+            <div id="<%- sensorID %>_soilState" style="text-align: center;color: #ecf0f1;
+                background-color: <%- soilColor %>;"><% if(soilState === "WET"){ %>
+                <%- __('WET')  %>
+                <% }else if(soilState === "MOIST") { %>
+                <%- __('MOIST')  %>
+                <% }else { %>
+                <%- __('DRY')  %>
+                <% } %> <%- soilValue %>
+            </div>
+            <label class="description" for="pumpState"><%- __('PumpState')  %></label>
+            <div id="<%- sensorID %>_pumpState" style="text-align: center;color: #ecf0f1;
+                background-color: <%- pumpColor %>;"><% if(pumpState === "ON"){ %><%- __('ON')  %><% }else { %><%- __('OFF')  %><% } %> <%- pumpTimer %>
+            </div>
+        </li>
+        <li>
+            <button id="<%- sensorID %>_startPumping" class="btn" type="submit"
+                    name="<%- sensorID %>_startPumping"><%- __('StartPumping')  %></button>
+            <button id="<%- sensorID %>_stopPumping" class="btn" type="submit"
+                    name="<%- sensorID %>_stopPumping"><%- __('StopPumping')  %></button>
+            <button id="<%- sensorID %>_shutdown" class="btn" type="submit"
+                    name="<%- sensorID %>_shutdown"
+                    onclick="return confirm('<%- __('SHUTDOWNWARN')  %>');"><%- __('SystemShutdown')  %></button>
+        </li>
+    </ul>
+</form>
