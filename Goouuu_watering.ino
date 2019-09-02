@@ -76,11 +76,13 @@ void ledLoop(const byte nbTics = 1, int ledPin = 4) {
 }
 
 void shutdownSystem() {
-  digitalWrite(RELAY, LOW);
-  digitalWrite(SOILSENSORPOWER, LOW);
-  system_deep_sleep_set_option(2);
-  Serial.println("Shutting down");
-  system_deep_sleep(0);
+  stopWateringPump();
+  while(true) {
+    delay(1000);
+  }
+//  system_deep_sleep_set_option(3);
+//  Serial.println("Shutting down");
+//  system_deep_sleep(0);
 }
 
 void setup() {
@@ -147,24 +149,28 @@ void setup() {
 }
 
 int pumpRunningSeconds = 0; //it's negative if we have timeout waiting
-int runCounter=0;
+int runCounter=600;
+int checkInterval = 600;
 
 void loop() {
   if (pumpRunningSeconds <= 0) {
-//    if(runCounter++ > 600){ //revery hour
+    if(runCounter++ > checkInterval){ //revery hour
       runCounter = 0;
       sensorValue = checkSensorValue(); //we read current sensor value only if pump is not running...
-//    }
+    }
   }
 
   if (sensorValue < DRY_SOIL) {
+    checkInterval = WATERING_RUN_LONG_SECONDS-10;
     Serial.println("Soil is dry");
     pumpRunningSeconds = runWateringPump(WATERING_RUN_LONG_SECONDS, pumpRunningSeconds);
   } else if (sensorValue < WET_SOIL) {
+    checkInterval = WATERING_RUN_SHORT_SECONDS-10;
     Serial.println("Soil is almost wet");
     pumpRunningSeconds = runWateringPump(WATERING_RUN_SHORT_SECONDS, pumpRunningSeconds);
   } else if (sensorValue > WET_SOIL) {
     Serial.println("Soil is wet");
+      checkInterval = 3600;
     if (pumpRunningSeconds) {
       //pump is running by FORCE
       pumpRunningSeconds = runWateringPump(WATERING_RUN_LONG_SECONDS, pumpRunningSeconds);
